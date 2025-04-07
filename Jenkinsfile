@@ -27,14 +27,25 @@ pipeline {
         }
         stage('Debug Env') {
             steps {
-                sh 'which node'
-                sh 'which npm'
-                sh 'echo $PATH'
+                sh '''
+            echo "== Node location =="
+            which node || echo "node not found"
+            echo "== NPM location =="
+            which npm || echo "npm not found"
+            echo "== Versions =="
+            node -v || echo "node version not found"
+            npm -v || echo "npm version not found"
+            echo "== PATH =="
+            echo $PATH
+        '''
             }
         }
         stage('Install dependencies') {
             steps {
-                sh '/usr/bin/npm install'
+                sh '''
+            export PATH=/usr/bin:$PATH
+            npm install
+        '''
             }
         }
         stage('Docker build') {
