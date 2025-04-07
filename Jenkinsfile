@@ -42,10 +42,7 @@ pipeline {
         }
         stage('Install dependencies') {
             steps {
-                sh '''
-            export PATH=/usr/bin/npm:$PATH
-            npm install
-        '''
+                sh 'npm install'
             }
         }
         stage('Docker build') {
