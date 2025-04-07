@@ -25,6 +25,13 @@ pipeline {
                 }
             }
         }
+        stage('Debug Env') {
+            steps {
+                sh 'which node'
+                sh 'which npm'
+                sh 'echo $PATH'
+            }
+        }
         stage('Install dependencies') {
             steps {
                 sh '/usr/bin/npm install'
