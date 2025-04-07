@@ -1,0 +1,7 @@
+configMap:
+  db_host: mysql-dev.devopsaws82s.online
+deployment:
+  imageURL: 361769572747.dkr.ecr.us-east-1.amazonaws.com/expense/backend:1.0.0
+  imageVersion: IMAGE_VERSION
+hpa:
+  cpuUtilization: 20
