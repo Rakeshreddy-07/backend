@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Install dependencies') {
             steps {
-                sh 'npm install'
+                sh '/usr/bin/npm install'
             }
         }
         stage('Docker build') {
