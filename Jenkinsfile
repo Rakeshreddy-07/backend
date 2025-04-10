@@ -73,7 +73,7 @@ pipeline {
                 expression { params.deploy }
             }
             steps{
-                build job: 'backend-deploy', parameters:[string(name: 'ACTION', value: 'apply')], wait= false
+                build job: 'backend-deploy', parameters: [string(name: 'ACTION', value: 'apply')], wait= false
                 }
 
             }
