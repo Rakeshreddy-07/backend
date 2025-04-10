@@ -73,6 +73,7 @@ pipeline {
                 expression { params.deploy }
             }
             steps{
+                steps{
                 build job: 'backend-deploy', parameters: [string(name: 'ACTION', value: 'apply')], wait= false
                 }
 
@@ -80,6 +81,7 @@ pipeline {
         }
             
     }
+
     post {
         always {
             echo "this section runs always"
@@ -92,3 +94,4 @@ pipeline {
             echo "this section runs when pipeline failure"
         }
     }
+}
